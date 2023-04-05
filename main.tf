@@ -1,7 +1,7 @@
 resource "aws_spot_instance_request" "rabbitmq" {
   ami                  = data.aws_ami.ami.id
   instance_type        = var.instance_type
-  subnet_id            = var.subnet_ids
+  subnet_ids           = var.subnet_ids
   wait_for_fulfillment = true
 
   tags = merge(
