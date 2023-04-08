@@ -38,6 +38,13 @@ resource "aws_security_group" "main" {
   vpc_id      = var.vpc_id
 
    ingress {
+    description = "RABBITMQ"
+    from_port   = 5672
+    to_port     = 5672
+    protocol    = "tcp"
+    cidr_blocks = var.allow_subnets
+  }
+   ingress {
     description      = "SSH"
     from_port        = 22
     to_port          = 22
